@@ -28,7 +28,7 @@ class Contact extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contact')
+        return $this->markdown('emails.contact')
             ->to('childadault@gmail.com')
             ->subject('Message from website')
             ->with('contactData', $this->contactData);

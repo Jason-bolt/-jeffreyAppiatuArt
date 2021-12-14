@@ -58,12 +58,15 @@ class Controller extends BaseController
 
         if ($contactData) {
             Mail::send(new Contact($contactData));
-
             return back()->with('success', 'Message sent successfully!');
         }
 
         return back();
 //        dd($request->input());
-//        return view('contact')->with('page', $page);
+    }
+
+    public function RouteError ()
+    {
+        return back();
     }
 }

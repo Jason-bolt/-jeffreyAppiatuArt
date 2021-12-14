@@ -25,12 +25,13 @@ Route::get('/', [Controller::class, 'index'])->name('home');
 Route::get('/artist', [Controller::class, 'artist']);
 Route::get('/contact', [Controller::class, 'contact']);
 Route::post('/contact', [Controller::class, 'send']) ->name('contact.send');
+Route::get('/logout', [Controller::class, 'RouteError']);
 
 Route::resource('control/cms/artworks', ArtworksController::class)->middleware(['auth']);
 Route::resource('control/cms/bio', BioController::class)->middleware(['auth']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
